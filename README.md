@@ -17,6 +17,13 @@
 - has_many :items
 - has_many :purchases
 
+## images テーブル
+| Column | Type       | Options                        | 
+| ------ | ---------- | ------------------------------ | 
+| image  | references |null: false, foreign_key: true  |
+
+### Association        
+- belongs_to :item
 
 ## items テーブル
 | Column            | Type       | Options                        | 
