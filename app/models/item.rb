@@ -5,9 +5,9 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :price, format: { with: /\A[0-9]+\z/}
   end
-  validates :image, :user, :name, :description, :category_id, :condition_id, :carriage_payer_id, :prefecture_id, :handling_time_id, presence: true 
+  validates :image, :user, :name, :description, :category_id, :condition_id, :carriage_payer_id, :prefecture_id, :handling_time_id, presence: true
 
-  validates :price, inclusion: {in: 300..9999999}
+  validates :price, inclusion: {in: 300..9_999_999}
 
   validates :category_id, :condition_id, :carriage_payer_id, :prefecture_id, :handling_time_id, numericality: { other_than: 1 }
 

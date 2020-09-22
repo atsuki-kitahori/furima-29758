@@ -14,9 +14,8 @@ RSpec.describe Item, type: :model do
     it 'ログインしているユーザーだけが出品ページへ遷移できること' do
       @item.user = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("User must exist")
+      expect(@item.errors.full_messages).to include('User must exist')
     end
-
 
     it '画像は1枚必須であること' do
       @item.image = nil
@@ -37,37 +36,37 @@ RSpec.describe Item, type: :model do
     end
 
     it 'カテゴリーの情報が必須であること' do
-      @item.category_id = ""
+      @item.category_id = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("Category can't be blank")
     end
 
     it '商品の状態についての情報が必須であること' do
-      @item.condition_id = ""
+      @item.condition_id = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("Condition can't be blank")
     end
 
     it '配送料の負担についての情報が必須であること' do
-      @item.carriage_payer_id = ""
+      @item.carriage_payer_id = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("Carriage payer can't be blank")
     end
 
     it '発送元の地域についての情報が必須であること' do
-      @item.prefecture_id = ""
+      @item.prefecture_id = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("Prefecture can't be blank")
     end
 
     it '発送までの日数について情報が必須であること' do
-      @item.handling_time_id = ""
+      @item.handling_time_id = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("Handling time can't be blank")
     end
 
     it '価格についての情報が必須であること' do
-      @item.price = ""
+      @item.price = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("Price can't be blank")
     end
@@ -75,22 +74,19 @@ RSpec.describe Item, type: :model do
     it '価格が¥300以上であること' do
       @item.price = 299
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price is not included in the list")
+      expect(@item.errors.full_messages).to include('Price is not included in the list')
     end
 
     it '価格が¥9,999,999以内であること' do
-      @item.price = 10000000
+      @item.price = 10_000_000
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price is not included in the list")
+      expect(@item.errors.full_messages).to include('Price is not included in the list')
     end
 
     it '販売価格は半角数字のみ保存可能であること' do
-      @item.price = "５００"
+      @item.price = '５００'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price is not included in the list")
+      expect(@item.errors.full_messages).to include('Price is not included in the list')
     end
-
-
-
   end
 end
