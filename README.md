@@ -17,6 +17,13 @@
 - has_many :items
 - has_many :purchases
 
+## images テーブル
+| Column | Type       | Options                        | 
+| ------ | ---------- | ------------------------------ | 
+| image  | references |null: false, foreign_key: true  |
+
+### Association        
+- belongs_to :item
 
 ## items テーブル
 | Column            | Type       | Options                        | 
@@ -34,6 +41,11 @@
 ### Association
 - belongs_to :user
 - has_one :purchase
+- belongs_to_active_hash :category
+- belongs_to_active_hash :condition
+- belongs_to_active_hash :carriage_payer
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :handling_time
 
 
 ## purchasesテーブル
@@ -61,3 +73,34 @@
 
 ### Association
 - belongs_to :purchase
+
+
+
+## category(Active Hash)
+| Column        | Type       | Options                        | 
+| ------------- | ---------- | ------------------------------ |
+| category      | string     | null: false                    |
+
+
+## condition(Active Hash)
+| Column        | Type       | Options                        | 
+| ------------- | ---------- | ------------------------------ |
+| condition     | string     | null: false                    |
+
+
+## carriage_payer(Active Hash)
+| Column         | Type       | Options                        | 
+| -------------- | ---------- | ------------------------------ |
+| carriage_payer | string     | null: false                    |
+
+
+## handling_time(Active Hash)
+| Column         | Type       | Options                        | 
+| -------------- | ---------- | ------------------------------ |
+| handling_time  | string     | null: false                    |
+
+
+## prefecture(Active Hash)
+| Column         | Type       | Options                        | 
+| -------------- | ---------- | ------------------------------ |
+| prefecture     | string     | null: false                    |
