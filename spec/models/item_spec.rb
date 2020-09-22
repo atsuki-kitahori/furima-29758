@@ -44,7 +44,7 @@ RSpec.describe Item, type: :model do
     it 'カテゴリーの選択肢が---のとき出品できないこと' do
       @item.category_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category must be other than 1")
+      expect(@item.errors.full_messages).to include('Category must be other than 1')
     end
 
     it '商品の状態についての情報が必須であること' do
@@ -56,7 +56,7 @@ RSpec.describe Item, type: :model do
     it '商品の状態について選択肢が---のとき出品できないこと' do
       @item.condition_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Condition must be other than 1")
+      expect(@item.errors.full_messages).to include('Condition must be other than 1')
     end
 
     it '配送料の負担についての情報が必須であること' do
@@ -68,7 +68,7 @@ RSpec.describe Item, type: :model do
     it '配送料の負担について選択肢が---のとき出品できないこと' do
       @item.carriage_payer_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Carriage payer must be other than 1")
+      expect(@item.errors.full_messages).to include('Carriage payer must be other than 1')
     end
 
     it '発送元の地域についての情報が必須であること' do
@@ -80,7 +80,7 @@ RSpec.describe Item, type: :model do
     it '発送元の地域について選択肢が---のとき出品できないこと' do
       @item.prefecture_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
+      expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
     end
 
     it '発送までの日数について情報が必須であること' do
@@ -92,7 +92,7 @@ RSpec.describe Item, type: :model do
     it '発送まで日数について選択肢が---のとき出品できないこと' do
       @item.handling_time_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Handling time must be other than 1")
+      expect(@item.errors.full_messages).to include('Handling time must be other than 1')
     end
 
     it '価格についての情報が必須であること' do
