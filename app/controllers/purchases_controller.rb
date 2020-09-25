@@ -4,6 +4,10 @@ class PurchasesController < ApplicationController
     @items = Item.all
   end
 
+  def create
+    
+  end
+
   private
   def set_item
     @item = Item.find(params[:item_id])
