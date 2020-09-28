@@ -14,7 +14,22 @@ const pay =  ()=> {
       exp_month: formData.get("exp_month"),
       exp_year: `20${formData.get("exp_year")}`,
     };
-    console.log(card);
+
+    Payjp.createToken(card, (status, response) => {
+      if (status == 200) {
+        const token = response.id;
+        const renderDom = document.getElementById("charge-form");
+        const tokenObj = `<input value=${token} type="hidden" name='token'>`;
+        renderDom.insertAdjacentHTML("beforeend", tokenObj);
+      }
+      document.getElementById("card-number").removeAttribute("name");
+      document.getElementById("card-cvc").removeAttribute("name");
+      document.getElementById("card-exp-month").removeAttribute("name");
+      document.getElementById("card-exp-year").removeAttribute("name");
+
+      document.getElementById("charge-form").submit();
+      document.getElementById("charge-form").reset();
+    })
   })
 }
 window.addEventListener("load", pay); 
