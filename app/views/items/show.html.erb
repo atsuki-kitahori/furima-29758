@@ -31,7 +31,9 @@
     <%= link_to '削除', item_path, method: :delete, class:'item-destroy' %>
     <% elsif user_signed_in? %>
     <%# 商品が売れていない場合はこちらを表示しましょう %>
+    <% if @item.purchase == nil %>
     <%= link_to '購入画面に進む', item_purchases_path(@item.id) ,class:"item-red-btn"%>
+    <% end %>
     <%# //商品が売れていない場合はこちらを表示しましょう %>
     <% else %>
 

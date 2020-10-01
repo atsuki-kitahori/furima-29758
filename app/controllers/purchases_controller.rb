@@ -1,7 +1,10 @@
 class PurchasesController < ApplicationController
   before_action :set_item
   def index
-    @items = Item.all
+    if  
+      @item.purchase != nil
+      redirect_to root_path
+    end
   end
 
   def create
