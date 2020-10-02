@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
   before_action :set_item
   def index
+    @purchase = UserPurchase.new
     if  
       @item.purchase != nil
       redirect_to root_path
