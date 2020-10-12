@@ -16,6 +16,7 @@
 ### Association
 - has_many :items
 - has_many :purchases
+- has_many :sns_credentials
 
 ## images テーブル
 | Column | Type       | Options                        | 
@@ -74,6 +75,15 @@
 ### Association
 - belongs_to :purchase
 
+## sns_credential
+| Column        | Type       | Options                        | 
+| ------------- | ---------- | ------------------------------ |
+| provider      | string     |                                |
+| uid           | string     |                                |
+| user          | references | foreign_key: true              |
+
+### Association
+- belongs_to :user
 
 
 ## category(Active Hash)
